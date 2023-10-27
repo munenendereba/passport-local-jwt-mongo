@@ -2,10 +2,10 @@
   "name": "passport-local-jwt-mongo",
   "version": "1.0.0",
   "description": "Try out passport authentication using local strategy, JWT and MongoDB",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "dev": "nodemon app.js"
   },
   "keywords": [
     "jwt",
