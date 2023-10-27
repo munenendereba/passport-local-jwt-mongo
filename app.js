@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const bodyParser = require("body-parser");
+const morganbody = require("morgan-body");
 
 const UserModel = require("./model/model");
 
@@ -19,7 +20,10 @@ const secureRoute = require("./routes/secure-routes");
 
 const app = express();
 
+morganbody(app);
+
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use("/", routes);
 

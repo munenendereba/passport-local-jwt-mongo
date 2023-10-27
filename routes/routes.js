@@ -7,7 +7,10 @@ const router = express.Router();
 router.post(
   "/signup",
   passport.authenticate("signup", { session: false }),
+
   async (req, res, next) => {
+    console.log("user:", req.user);
+
     res.json({
       message: "Signup successful",
       user: req.user,
