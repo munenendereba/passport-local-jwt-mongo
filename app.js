@@ -3,13 +3,19 @@ import passport from "passport";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import morganbody from "morgan-body";
+import { configDotenv } from "dotenv";
 
 import { router as routes } from "./routes/routes.js";
 import { router as secureRoute } from "./routes/secure-routes.js";
-import { UserModel } from "./model/model.js";
 import("./auth/auth.js");
 
-mongoose.connect("mongodb://127.0.0.1:27017/passport-jwt", {
+configDotenv();
+
+const DB_NAME = process.env.DB_NAME;
+const DB_PORT = process.env.DB_PORT;
+const DB_HOST = process.env.DB_HOST;
+
+mongoose.connect(`mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
