@@ -2,6 +2,9 @@ import passport from "passport";
 import localStrategy from "passport-local";
 import { UserModel } from "../model/model.js";
 import { Strategy as JWTstrategy, ExtractJwt } from "passport-jwt";
+import { configDotenv } from "dotenv";
+
+configDotenv();
 
 passport.use(
   "signup",
@@ -54,8 +57,8 @@ passport.use(
 passport.use(
   new JWTstrategy(
     {
-      secretOrKey: "TOP_SECRET",
-      jwtFromRequest: ExtractJwt.fromUrlQueryParameter("secret_token"),
+      secretOrKey: process.env.JWT_SECRET,
+      jwtFromRequest: ExtractJwt.fromUrlQueryParameter("access_token"),
     },
     async (token, done) => {
       try {
