@@ -1,8 +1,8 @@
-const express = require("express");
-const passport = require("passport");
-const jwt = require("jsonwebtoken");
+import express from "express";
+import passport from "passport";
+import jwt from "jsonwebtoken";
 
-const router = express.Router();
+export const router = express.Router();
 
 router.post(
   "/signup",
@@ -40,5 +40,3 @@ router.post("/login", async (req, res, next) => {
     }
   })(req, res, next);
 });
-
-module.exports = router;

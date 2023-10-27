@@ -1,10 +1,13 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const passport = require("passport");
-const bodyParser = require("body-parser");
-const morganbody = require("morgan-body");
+import express from "express";
+import passport from "passport";
+import mongoose from "mongoose";
+import bodyParser from "body-parser";
+import morganbody from "morgan-body";
 
-const UserModel = require("./model/model");
+import { router as routes } from "./routes/routes.js";
+import { router as secureRoute } from "./routes/secure-routes.js";
+import { UserModel } from "./model/model.js";
+import("./auth/auth.js");
 
 mongoose.connect("mongodb://127.0.0.1:27017/passport-jwt", {
   useNewUrlParser: true,
@@ -12,11 +15,6 @@ mongoose.connect("mongodb://127.0.0.1:27017/passport-jwt", {
 });
 mongoose.connection.on("error", (error) => console.log(error));
 mongoose.Promise = global.Promise;
-
-require("./auth/auth");
-
-const routes = require("./routes/routes");
-const secureRoute = require("./routes/secure-routes");
 
 const app = express();
 
