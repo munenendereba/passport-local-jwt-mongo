@@ -2,7 +2,7 @@
 
 ## Problem
 
-The information is not easily searchable especially if you are on mobile.
+Try out passport authentication using local strategy, JWT and MongoDB
 
 ## Description
 
@@ -58,13 +58,15 @@ npm run dev
 ## Packages used
 
 - [express](https://www.npmjs.com/package/express) for handling server requests and routing
-- [ejs](https://www.npmjs.com/package/ejs) template engine for node to create front-end pages
 - [body-parser](https://www.npmjs.com/package/body-parser) enable parsing of requests and responses
 - [dotenv](https://www.npmjs.com/package/dotenv) for loading environment variables from .env file
-- [mariadb](https://www.npmjs.com/package/mariadb) for handling connection to MariaDB database
-- [sequelize](https://www.npmjs.com/package/sequelize) ORM for handling db CRUD operations
 - [morgan-body](https://www.npmjs.com/package/morgan-body) to log requests and responses
-- [nodemon](https://www.npmjs.com/package/nodemon) auto-restart the node application when changes are made and saved to files - Dev environment
+- [passport](https://www.npmjs.com/package/passport) for authentication
+- [passport-local](https://www.npmjs.com/package/passport-local) for authentication
+- [passport-jwt](https://www.npmjs.com/package/passport-jwt) for authentication
+- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) for authentication
+- [bcryptjs](https://www.npmjs.com/package/bcryptjs) for authentication
+- [mongoose](https://www.npmjs.com/package/mongoose) for database connection
 
 ## Improvements
 
