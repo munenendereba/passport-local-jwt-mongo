@@ -2,6 +2,7 @@ import express from "express";
 import passport from "passport";
 import jwt from "jsonwebtoken";
 import { configDotenv } from "dotenv";
+import { UserModel } from "../model/model.js";
 
 configDotenv();
 
@@ -42,4 +43,14 @@ router.post("/login", async (req, res, next) => {
       return next(error);
     }
   })(req, res, next);
+});
+
+router.get("/users", async (req, res, next) => {
+  try {
+    const users = await UserModel.find();
+
+    res.json(users);
+  } catch (error) {
+    next(error);
+  }
 });
